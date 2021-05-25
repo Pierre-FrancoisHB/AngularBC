@@ -15,5 +15,7 @@ It contain few valuable typecript functionality, and others about data binding :
 
 ## Security
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+These are two aspects aoubt security :
+1. A login page for professionals to enter the intraner part, wher they can manage thier garages and ads on CRUD model.
+2. To access database, the web appli use a `JWT token` to avoid csrf attack. 
 
