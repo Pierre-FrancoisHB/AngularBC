@@ -1,0 +1,375 @@
+
+@import 'assets/css/base.css';
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+.container {
+  max-width: 85vw;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+/******************
+ DEBUT DU HEADER
+******************/
+header .background {
+  background-image: linear-gradient(
+    to top right,
+    rgba(233, 146, 5, 0.244),
+    rgba(0, 0, 0, 0.4)
+  ),
+  url(assets/images/header-photo.jpg);
+background-size: 100%;
+background-position: center top;
+background-attachment: fixed;
+height: 15vw;
+color: white;
+}
+header nav {
+  display: flex;
+  padding: 1vw 3vw 3vw;
+  text-align: center;
+  justify-content: space-between;
+}
+
+header #buttons {
+  padding: 0px 0px;
+}
+
+header nav img {
+  height: 5vw;
+}
+
+header nav li {
+  margin: 0 2vw 0;
+  font-size : 1vw;
+  font-family: 'Rubik', sans-serif;
+}
+header nav li a:hover {
+  color:rgb(199, 145, 28);
+  transition: color 0.3s;
+}
+li > a:after{
+  content: '';
+  display: block;
+  height: 1.5px;
+  background: #FBC02D;
+  transform: scaleX(0);
+  transition: transform .3s;
+}
+li > a:hover:after{
+  transform: scaleX(1);
+  transition: transform .3s;
+}
+header h2 {
+  padding: 10px; /*haut côtés bas*/
+  font-family: 'Rubik', sans-serif;
+  color:  #c57f1d;
+  font-size: 2vw;
+}
+header h3 {
+  font-family: 'Rubik', sans-serif;
+}
+
+/******************
+ FIN DU HEADER
+******************/
+
+
+/******************
+ MAIN DU HOME
+******************/
+
+#morgan {
+background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  url(/assets/images/morgan-1797422_1920.jpg);
+background-size: cover;
+background-position: center;
+color: white;
+padding: 30px 30px 350px;
+text-align: center;
+font-family: 'Courgette', cursive;
+font-size: 14px;
+}
+article #drowdop{
+  background-color: rgb(148, 148, 147);
+  height : 12vw;
+  border-radius: 10px;
+  margin : 10px auto 150px;
+}
+article #drowdop .ngx-slider .ngx-slider-bubble {
+  font-size: 0.7vw !important;
+}
+article #drowdop .btn{
+  font-size: 0.9vw;
+}
+
+#morgan h2{
+  margin: auto;
+  color : rgb(199, 145, 28);
+  font-family: 'Rubik', sans-serif;
+  font-size: 2vw;
+}
+#morgan h2:before, #morgan h2:after {
+  content:'';
+  width:85%;
+  border-bottom:rgba(199, 145, 28) solid;
+  border-bottom-width: 2px;
+  display:inline-block;
+  vertical-align:middle;
+}
+#morgan h2:before {
+  margin-left:-100%;
+margin-right:2em}
+#morgan h2:after {
+  margin-right:-100%;
+margin-left:2em;}
+
+
+/* Vignettes des annonces animées*/
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  grid-auto-rows: 420px;
+  grid-auto-flow: dense;
+  list-style-type: none;
+  padding: 0;
+  margin: -200px 0 0;
+}
+.gallery li {
+background-color: gray;
+border-radius: 15px;
+margin: 0 0 20px ;
+text-align: left;
+font-family: 'Rubik', sans-serif;
+font-size : 14px;
+color : whitesmoke;
+box-shadow:8px 8px 10px 0 rgba(0,0,0,0.5);
+overflow: hidden;
+}
+.wide {
+  grid-column: span 2;
+}
+.gallery img {
+  width: 100%;
+  height: 60%;
+  display: block;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+.gallery li h3 {
+margin : 10px 0 15px;
+}
+.gallery li .price {
+font-size: 18px;
+font-weight: bold;
+color: rgba(199, 145, 28);
+}
+
+
+/* Hover effect specific styles */
+
+.gallery.filter img {
+  transition: filter .5s ease-in-out;
+  filter: grayscale(100%);
+}
+.gallery.filter img:hover {
+  filter: none;
+  transform:scale(1.1);
+ }
+
+
+ /******************
+ MAIN DE ANNONCE
+******************/
+main {
+  background-color: rgba(167, 167, 167, 0.856);
+}
+.sub {
+  background-color: #c57f1d !important;
+  margin : 0 3% 0;
+}
+section {
+  padding-bottom: 3%;
+}
+.offers {
+  margin-left: 3%;
+  margin-right: 2%;
+  padding-bottom: 5vw;
+  font-family: 'Rubik', sans-serif;
+}
+.offers #photos {
+   height: 96%;
+ }
+.redaction h1 .carTitle {
+  font-weight: lighter !important;
+  font-family: 'Rubik', sans-serif;
+  margin-top: 15px;
+}
+.redaction h1#carTitle {
+color : rgba(199, 145, 28);
+}
+.redaction #trait {
+  border-color : rgba(199, 145, 28);
+  border-width: 0 0 1px;
+  border-style : solid;
+  margin-top: 15px;
+}
+.offers .redaction #strongPoints {
+  display: grid;
+  font-size: 1.2vw;
+  color : rgba(199, 145, 28);
+  margin-top : 25px;
+}
+.redaction p {
+  font-size: 0.75vw;
+}
+.logo {
+  padding-top: 15px;
+ }
+.logo span {
+  font-size: 80%;
+}
+.logo #brandLogo {
+  width: 40%;
+}
+.logo .icons img {
+  width: 50px;
+  margin: auto;
+}
+.logo .localisation img {
+  width : 8%;
+}
+.logo .price p {
+  font-size: 250%;
+  line-height : 70%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.logo .contact {
+  padding: 5%;
+}
+.logo .contact img {
+  width : 25%;
+  margin-right: 5%;
+}
+.logo .contact p {
+  font-size: 200%;
+}
+.logo .contact h3 {
+  margin-top: -20px;
+}
+.logo .contactBis img {
+  width : 15%;
+}
+
+#box {position: relative;}
+input[type="radio"],.content {display: none;}
+#box label {
+    display: inline-block;
+    height: 90%;
+    padding: 0.7vw 5.5vw;
+    }
+input[type="radio"] {
+    border-bottom: 2px solid #949494;
+    } 
+input[type="radio"]:checked + label {
+    background: #E6E6E6;
+    color: #255FDD;
+    border-bottom: 2px solid #255FDD;
+    }
+input[type="radio"]:checked + label > div {
+    display: block; 
+    }
+.content {
+    position: absolute;
+    top: 2.9vw;
+    left: 0;
+    width: 98%;
+    height: 200%;
+    padding: 1rem;
+    background: rgb(230,230,230);
+}
+
+
+ /******************
+ MAIN PRO ACCOUNT
+******************/
+.btn-xl {
+  padding: 0.5vw 2vw;
+  font-size: 1vw;
+  border-radius: 0.5vw;
+}
+#garages button {
+  background-color: #c2a67f;
+}
+#garages button ul li {
+  font-size: 1vw;
+}
+section button img {
+  height: 4vw;
+}
+
+
+
+/******************
+ FIN DU MAIN
+******************/
+
+
+/******************
+ FOOTER
+******************/
+
+
+footer {
+  margin-top: 50px;
+  background-color: #c57f1d;
+  color: white;
+  }
+footer #left {
+  line-height: 2.3vw;
+  font-size : 1.2vw;
+}
+ footer #left img {
+  height: auto;
+  width: 100%;
+}
+footer #right span {
+  /* font-size : 0.9vw; */
+  margin-bottom: 0px;
+}
+footer #right img {
+  height: 15%;
+  width: auto;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/*******************
+format mobile (media querie): jusqu'à une taille d'écran de 768px max
+*******************/
+@media (max-width: 768px) {
+  header nav ul {
+    display: none;
+  }
+  #devise {
+    flex-direction: column;
+    text-align: center;
+  }
+  #devise img {
+    width: 250px;
+    margin-right: 0;
+  }
+  #concept div article {
+    width: 100%;
+  }
+}
+

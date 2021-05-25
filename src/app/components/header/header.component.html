@@ -1,0 +1,27 @@
+<header>
+    <div class="background">
+        <nav class="c-navbar">
+            <img src="../../assets/images/lesAnciennes-d.png" alt="logo les anciennes" />
+            <h2>La référence des annonces de collections</h2>
+            <div class="d-flex flex-column">
+                <a href="http://localhost:4200/auth"><img src="../../assets/images/profile.png" alt="logo compte pro" />
+                    <h3 class="d-flex justify-content-center">Espace pro</h3>
+                </a>
+                <button *ngIf="isAuth" class="p-4 btn btn-dark mr-2" routerLink="profil">
+                    Profil de {{professionnal.firstname}}
+                </button>
+
+                <button *ngIf="isAuth" class="p-4 btn btn-dark mr-2" (click)="onClickSignOut()">
+                    Déconnexion
+                </button>
+            </div>
+        </nav>
+        <nav id=buttons>
+            <ul class="d-flex justify-content-around ml-4">
+                <li><a href="http://localhost:4200/">Home</a></li>
+                <li><a href="http://localhost:4200/vehicules/2">Détail</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

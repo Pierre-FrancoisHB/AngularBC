@@ -1,0 +1,63 @@
+<form (ngSubmit)="onSubmitSelectCars()" [formGroup]="selectCarForm">
+
+    <div id="drowdop" class="w-75 ">
+
+
+
+        <div class="row justify-content-around py-4">
+            <div class="col-3">
+                <select name="brand" id="dep" class="rounded-lg py-2 px-4" (change)="onChangeBrand($event)"
+                    formControlName="brand" [(ngModel)]="brandId">
+                    <option value='-1'> -- Marques --</option>
+                    <option *ngFor="let brand of brands" [value]="brand.id">
+                        {{brand.brandname}} </option>
+
+                </select>
+            </div>
+
+            <div class="col-3">
+                <select name="model" id="dep" class="rounded-lg py-2 px-4" formControlName="model"
+                    [(ngModel)]="modelId">
+                    <option value='-1'> -- Modèles --</option>
+                    <option *ngFor="let model of modelsForBrandId" [value]="model.id"> {{model.modelName}} </option>
+                </select>
+            </div>
+
+            <div class="col-3">
+                <select name="energy" id="dep" class="rounded-lg py-2 px-4" formControlName="energy"
+                    [(ngModel)]="energyId">
+                    <option value='-1'> -- Energy --</option>
+                    <option *ngFor="let energy of energies" [value]="energy.id"> {{energy.energyName}} </option>
+                </select>
+            </div>
+        </div>
+
+
+        <div id="middle" class="row justify-content-around pt-5 px-5">
+
+            <div class="col-offset-1 col 4">
+                <label for="kms" class="h3">Kilomètres</label>
+                <ngx-slider id="kms" [(value)]="minKms" [(highValue)]="maxKms" [options]="optionsKms"></ngx-slider>
+            </div>
+
+            <div class="col 4">
+                <label for="year" class="h3">Années</label>
+                <ngx-slider id="year" [(value)]="minYear" [(highValue)]="maxYear" [options]="optionsYears">
+                </ngx-slider>
+            </div>
+
+            <div class="col 4">
+                <label for="price" class="h3">Prix</label>
+                <ngx-slider id="price" [(value)]="minPrice" [(highValue)]="maxPrice" [options]="optionsPrice">
+                </ngx-slider>
+            </div>
+
+
+
+        </div>
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="selectCarForm.invalid">Rechercher</button>
+    </div>
+
+
+
+</form>

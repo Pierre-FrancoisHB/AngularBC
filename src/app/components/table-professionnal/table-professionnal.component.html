@@ -1,0 +1,16 @@
+<table class="table mt-5">
+    <thead class="thead-light">
+        <th scope="col">Id</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Téléphone</th>
+    </thead>
+    <tbody>
+        <tr app-table-line-professionnal *ngFor=" let professionnal of professionnals" [id]="professionnal.id"
+            [lastname]="professionnal.lastname" [firstname]="professionnal.firstname" [email]="professionnal.email"
+            [telnumber]="professionnal.telnumber">
+            <app-table-line-professionnal></app-table-line-professionnal>
+        </tr>
+    </tbody>
+</table>

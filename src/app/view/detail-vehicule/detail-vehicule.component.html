@@ -1,0 +1,159 @@
+<div class="container">
+    <div class="sub my-4 pl-4 bg-white border border-dark">
+        <span style="font-size:1.2vw">Disponibilité : </span>
+        <span style="font-size:1.2vw"><strong>Immédiate</strong></span>
+    </div>
+    <section class="d-flex display-flex-around" id="annonceHeight">
+        <div *ngIf="vehicule" class="offers col-8 d-flex justify-content-around bg-white ">
+            <div class="d-block col-9 my-5" id="photos">
+                <div class="my-4">
+                    <div class="col-12 " *ngFor="let photo of vehicule.photos">
+                        <img class="img-fluid mt-3 w-100 shadow" id="mainPhoto" *ngIf="photo.mainPhoto"
+                            src="{{ photo.photoLink }}" alt="" />
+                    </div>
+                </div>
+                <div class=" d-flex justify-content-between mt-4">
+                    <div *ngFor="let photo of vehicule.photos">
+                        <img *ngIf="photo.mainPhoto == 0" class="col-12 my-4 img-fluid" src="{{ photo.photoLink }}" />
+                    </div>
+                </div>
+
+                <!--------------- DIV DU SELECTEUR A ONGLET  ----------------->
+                <div class="mt-5 mx-3">
+                    <tabset [justified]="true">
+                        <tab heading="Livraison à domicile" class="my-3">
+                            Si vous choisissez ce mode de livraison, un chauffeur professionnel vous contactera pour
+                            fixer un rendez-vous de livraison et vous remettra tous les documents, notamment votre
+                            certificat provisoire d’immatriculation.
+                        </tab>
+                        <tab heading="Remise en concession" class="my-3">
+                            Vous avez
+                            la possibilité de vous faire livrer dans une concessions multimarques. Une fois votre
+                            commande finalisée, un conseiller commercial vous recontactera pour effectuer la remise en
+                            main du véhicule.
+                        </tab>
+                    </tabset>
+                </div>
+                <!--
+                <div>
+                    <ul class="col 9 nav nav-pills nav-justified mt-5 mx-3" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">Livraison à domicile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Remise en concession</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content mt-3" id="myTabContent">
+                        <div class="tab-pane fade show active p-3" id="livraison" role="tabpanel"
+                            aria-labelledby="home-tab">
+                            Si vous choisissez ce mode de livraison, un chauffeur professionnel vous contactera pour
+                            fixer un rendez-vous de livraison et vous remettra tous les documents, notamment votre
+                            certificat provisoire d’immatriculation.
+                        </div>
+                        <div class="tab-pane fade p-3" id="remise" role="tabpanel" aria-labelledby="profile-tab">Vous
+                            avez
+                            la possibilité de vous faire livrer dans une concessions multimarques. Une fois votre
+                            commande finalisée, un conseiller commercial vous recontactera pour effectuer la remise en
+                            main du véhicule.</div>
+                    </div>
+                </div>
+                -->
+            </div>
+
+            <!------- TEXT ON THE MIDDLE ------------>
+            <div class="redaction col-3 my-4 border border-dark">
+                <div>
+                    <h1 id="carTitle" style="font-size:2vw">Ford
+                        {{vehicule.model.modelName}}</h1>
+                    <div id="trait"></div>
+                    <div class="mt-4">
+                        <p>{{vehicule.description}}
+                        </p>
+                    </div>
+                    <div id="strongPoints">
+                        <span>Points forts :</span>
+                        <span>- Voiture de projet, ne roule pas</span>
+                        <span>- Moteur entretenu</span>
+                        <span>- Belle base pour amateur</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!---------------------------------
+        --------- RIGHT COLUMN ----------- 
+        ---------------------------------->
+
+        <div class="logo col-3 bg-light">
+            <div class="d-flex mt-2 justify-content-around align-items-center border border-dark">
+                <h2> Description </h2>
+                <img id="brandLogo" src="../../assets/images/logo-ford.png" />
+            </div>
+            <div class="pt-4 pb-4 border">
+                <div class="pb-4 d-flex justify-content-around">
+                    <div class="icons d-flex flex-column">
+                        <img src="../../assets/images/Icone_benzinejpg.jpg" class="img-thumbnail" />
+                        <span class="text-center"> Diesel </span>
+                    </div>
+                    <div class="icons d-flex flex-column">
+                        <img src="../../assets/images/Icone_calendar.jpg" class=" img-thumbnail" />
+                        <span class="text-center"> {{ vehicule.year }} </span>
+                    </div>
+                    <div class="icons d-flex flex-column">
+                        <img src="../../assets/images/Icone_speed.jpg" class=" img-thumbnail" />
+                        <span class="text-center"> {{ vehicule.kilometer }} km </span>
+                    </div>
+                    <div class="icons d-flex flex-column">
+                        <img src="../../assets/images/Icone_gear.jpg" class=" img-thumbnail" />
+                        <span class="text-center"> Manuelle </span>
+                    </div>
+
+                </div>
+                <div class="localisation text-center pt-4">
+                    <img src="../../assets/images/maplocalization_89142.png" class="img-thumbnail" />
+                    <span> Localisation </span>
+                </div>
+
+                <div class="price mt-5 price d-flex justify-content-around align-items-center border border-dark">
+                    <p class="font-weight-bold"> 30 980€ </p>
+                    <span class="effetNavBar"> ou </span>
+                    <div>
+                        <span> A partir de </span>
+                        <div>
+                            <p class="">639€</p>
+                            <span>/mois</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="contact mt-5 d-flex justify-content-around align-items-center border border-dark border-bottom-0">
+                <img src="../../assets/images/Icon_besoin_aide.jpg" />
+                <div class="d-flex flex-column">
+                    <h2 class="mt-4  font-weight-bold">Contactez-nous !</h2>
+                    <p class="font-weight-bold">06 89 75 24 34</p>
+                    <h3 class="font-weight-bold">(Prix d'un appel local)</h3>
+                    <span class="mt-4 mb-4 font-weight-bold">Lun-sam : 09h - 18h. Sauf dimanche et jours fériés</span>
+                </div>
+            </div>
+
+            <div class="contactBis mb-3 d-flex justify-content-around">
+                <div class="col-6 pt-3 pb-3 text-center align-self border border-dark">
+                    <img src="../../assets/images/icon-tel.png" />
+                    <span>Etre rappelé ></span>
+                </div>
+                <div class="col-6 pt-3 pb-3 text-center align-self border border-dark">
+                    <img src="../../assets/images/icon-envelope.png" />
+                    <span>Envoyer <br> un mail ></span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>

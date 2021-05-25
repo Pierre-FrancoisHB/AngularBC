@@ -1,0 +1,8 @@
+<div class="container">
+    <ul class="gallery filter">
+        <li class="border" app-result-card *ngFor="let vehicule of vehicules" [id]="vehicule.id"
+            [model]="vehicule.model" [kilometer]="vehicule.kilometer" [price]="vehicule.price" [year]="vehicule.year"
+            [photos]="vehicule.photos">
+        </li>
+    </ul>
+</div>

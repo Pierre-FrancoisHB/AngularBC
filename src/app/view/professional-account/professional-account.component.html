@@ -1,0 +1,204 @@
+<div class="container">
+    <div class="title text-center">
+        <h1 class="my-5">COMPTE PROFESSIONNEL</h1>
+        <ul class="my-5">
+            <li class=" h1">Page de gestion avec un accès à :</li>
+            <li class="h3">- Vos informations de profil</li>
+            <li class="h3">- La liste de vos garages</li>
+            <li class="h3">- La liste des véhicules de vos garages</li>
+        </ul>
+    </div>
+
+    <div class="my-5 text-center">
+        <button type="button" class="btn btn-secondary btn-xl mr-3" [disabled]="firstButtonStatus"
+            (click)="onChangeFirstButton($event)">Gérer mes garages et
+            annonces</button>
+        <button type="button" class="btn btn-secondary btn-xl" [disabled]="secondButtonStatus "
+            (click)="onChangeSecondButton($event)">Gérer les données de mon
+            compte</button>
+    </div>
+
+    <!----------------------- FIRST SECTION : TWO BOX GARAGES & ANNONCES ---------------------->
+    <section class="d-flex justify-content-around" *ngIf="firstButtonStatus">
+        <div class="col-4 border rounded" id="garages">
+            <h2 class="my-4">GERER MES GARAGES</h2>
+            <div class="d-flex flex-column">
+
+                <button type="button" class="btn d-flex justify-content-around border rounded my-3"
+                    [disabled]="garageOneStatus" (click)=onSelectGarageOne($event)>
+                    <img src="../../assets/images/concession-1.jpg" />
+                    <span>
+                        <ul>
+                            <li>Concession JENLAIN CLASSIC</li>
+                            <li>10, downing street</li>
+                            <li>73000 CHAMBERY</li>
+                        </ul>
+                    </span>
+                </button>
+
+                <button type="button" class="btn d-flex justify-content-around border rounded my-3"
+                    [disabled]="garageTwoStatus" (click)=onSelectGarageTwo($event)>
+                    <img src="../../assets/images/concession-2.jpg" />
+                    <span class>
+                        <ul>
+                            <li>Concession JENLAIN CHAMBERY</li>
+                            <li>125, avenue de la plage</li>
+                            <li>38000 GRENOBLE</li>
+                        </ul>
+                    </span>
+                </button>
+                <button class="btn d-flex justify-content-around border rounded my-3" [disabled]="garageThreeStatus"
+                    (click)=onSelectGarageThree($event)>
+                    <img src="../../assets/images/concession-3.jpg" />
+                    <span class>
+                        <ul>
+                            <li>Concession SPIRIT</li>
+                            <li>18 boulevard Winston Churchill</li>
+                            <li>74000 ALBERTVILLE</li>
+                        </ul>
+                    </span>
+                </button>
+
+            </div>
+        </div>
+
+        <!------------ CAROUSSELS ----------------->
+        <div class="col-5 border rounded" id="adsByGarage">
+            <carousel *ngIf="garageOneStatus">
+                <slide>
+                    <a href="http://localhost:4200/vehicules/2"><img src="assets/images/ford1.jpg" alt="first slide"
+                            style="display: block; width: 100%;"></a>
+                </slide>
+                <slide>
+                    <img src="assets/images/ford2.jpg" alt="second slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img src="assets/images/ford3.jpg" alt="third slide" style="display: block; width: 100%;">
+                </slide>
+            </carousel>
+            <carousel *ngIf="garageTwoStatus">
+                <slide>
+                    <img src="assets/images/ford-mustang.jpg" alt="first slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img src="assets/images/jaguar.jpg" alt="second slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img src="assets/images/packard-one-twenty.jpg" alt="third slide"
+                        style="display: block; width: 100%;">
+                </slide>
+            </carousel>
+            <carousel *ngIf="garageThreeStatus">
+                <slide>
+                    <img src="assets/images/panhard-dyna.jpg" alt="first slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img src="assets/images/pontiac-firebird.jpg" alt="second slide"
+                        style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img src="assets/images/ford3.jpg" alt="third slide" style="display: block; width: 100%;">
+                </slide>
+            </carousel>
+        </div>
+    </section>
+
+
+
+    <!-------------------- SECOND SECTION : PROFIL GESTION --------------------------->
+    <section *ngIf="secondButtonStatus">
+        <div class="container">
+            <h1>Edit Profile</h1>
+            <hr>
+            <div class="row">
+
+                <!-- left column -->
+                <div class="col-md-3">
+                    <div class="text-center">
+                        <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                        <h6>Upload a different photo...</h6>
+                        <input type="file" class="form-control">
+                    </div>
+                </div>
+
+                <!-- edit form column -->
+                <div class="col-md-9 personal-info">
+                    <div class="alert alert-info
+                        alert-dismissable"> <a class="panel-close close" data-dismiss="alert">×</a>
+                        <i class="fa fa-coffee"></i> This is an <strong>.alert</strong>. Use this to show important
+                        messages to the user.
+                    </div>
+                    <h3>Personal info</h3>
+
+                    <!-- the form -->
+                    <form class="form-horizontal" (ngSubmit)="onSubmitEditProfil()" [formGroup]="profilForm">
+                        <div class="form-group">
+                            <label for="username" class="col-lg-3 control-label">
+                                Nom d'usage pour ce compte :
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control form-size-lg" id="username"
+                                    formControlName="username" [(ngModel)]="professional.username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-lg-3 control-label">
+                                Email :
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="email" class="form-control" id="email" formControlName="email"
+                                    [(ngModel)]="professional.email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="siret" class="col-lg-3 control-label">
+                                N° de SIRET :
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="siret" formControlName="siret"
+                                    [(ngModel)]="professional.siret">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="personnalTel" class="col-lg-3 control-label">
+                                N° de téléphone principal :
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="personnalTel" formControlName="personnalTel"
+                                    [(ngModel)]="professional.personnalTel">
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <label class="col-lg-3 control-label">Localisation:</label>
+                            <div class="col-lg-8">
+                                <div class="ui-select">
+                                    <select id="user_time_zone" class="form-control form-control-lg">
+                                        <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+                                        <option value="Bourgogne-Franche-Comté">
+                                            Bourgogne-Franche-Comté</option>
+                                        <option value="Bretagne">Bretagne</option>
+                                        <option value="Centre-Val de Loire">Centre-Val de Loire</option>
+                                        <option value="Corse">Corse </option>
+                                        <option value="Grand Est" selected="selected">Grand Est</option>
+                                        <option value="Île-de-France">Île-de-France</option>
+                                        <option value="Normandie">Normandie</option>
+                                        <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
+                                        <option value="Occitanie">Occitanie</option>
+                                        <option value="Pays de la Loire">Pays de la Loire</option>
+                                        <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </form>
+                    <button type="submit" class="btn btn-primary btn-lg" [disabled]="authForm.invalid">Modifier</button>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-5">
+
+    </section>
+
+</div>

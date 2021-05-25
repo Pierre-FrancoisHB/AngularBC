@@ -1,0 +1,11 @@
+<a [routerLink]="getDetailUrl(id)">
+    <h3>
+        <!--{{vehicule.brand}}--> {{model.modelName}}
+    </h3>
+    <div *ngFor="let photo of photos">
+        <img *ngIf="photo.mainPhoto" [src]="photo.photoLink" alt="" />
+    </div>
+    <p>Kilometrage : {{kilometer}} km <br>
+        année : {{year}} </p>
+    <p class="price"> {{price}} € </p>
+</a>
